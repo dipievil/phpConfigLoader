@@ -13,7 +13,8 @@ class cfgLoader{
     private $iniFile = "";
     private $fullPath = "";
     private $arrayFile = "";
-    private $internalData = "";
+
+    public $internalData = "";
 
     /**
      *
@@ -62,7 +63,7 @@ class cfgLoader{
      */
     private function loadJson(){
         if(file_exists($this->fullPath.$this->jsonFile)) {
-            $arCfg = json_decode(file_get_contents($this->fullPath.$this->iniFile));
+            $arCfg = get_object_vars(json_decode(file_get_contents($this->fullPath.$this->jsonFile)));
             $this->loadConfigs($arCfg);
         }
     }
@@ -76,7 +77,6 @@ class cfgLoader{
             $this->loadConfigs($arCfg);
         }
     }
-
 
     /**
      * Load values from default array
@@ -96,7 +96,6 @@ class cfgLoader{
      * @param $arConfig array with parameters
      */
     private function loadConfigs($arConfig){
-        print_r($arConfig);
         if(!empty($arConfig)) {
             $arKeys = array_keys($arConfig);
             for($i=0;$i<count($arConfig);$i++){
@@ -109,15 +108,25 @@ class cfgLoader{
      *
      * Dynamic getter
      * @param $setting string with parameter name
+     * @throws Exception If no property setted
+     * @return $value
      */
     public function __get($setting) {
-        $this->internalData[$setting];
+        $value = $this->internalData[$setting];
+        if(empty($value)){
+            throw new Exception("No property with this value: ".$setting."\n\n");
+        } else {
+            return $value;
+        }
+    }
+
+    public function viewSettings(){
+        print_r($this->internalData);
     }
 
     /**
      *
      * Dynamic setter
-     *
      * @param $setting  string with parameter name
      * @param $value string with parameter value
      */
