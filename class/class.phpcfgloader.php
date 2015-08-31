@@ -1,9 +1,14 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: dritzel
+ * User: dipievil
  * Date: 31/08/2015
  * Time: 09:46
+ *
+ * Class with all configuration from the
+ * files json, array and $arCfg
+ *
+ * Source: https://github.com/dipievil/phpConfigLoader
  */
 
 class cfgLoader{
