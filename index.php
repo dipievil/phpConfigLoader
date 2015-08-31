@@ -12,9 +12,20 @@
 
 
     $cfg = new cfgLoader();
+?>
 
-    echo "Name (from json file): ".$cfg->Name."\n\n";
-    echo "Age (from ini file): ".$cfg->age."\n\n";
-    echo "Street (from array): ".$cfg->street."\n\n";
+<html>
+<head>
+
+</head>
+<body>
+
+<?php
+echo "Name (from json file): ".$cfg->Name."<br />\n\n";
+echo "Age (from ini file): ".$cfg->age."<br />\n\n";
+echo "Street (from array): ".$cfg->street."<br />\n\n";
 
 ?>
+</body>
+
+</html>
