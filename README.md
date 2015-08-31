@@ -26,3 +26,11 @@ Access all your seetings with:
 
 ### Version
 1.0.1
+
+
+### Credits
+Based upon this question in Stack Overflow:
+
+*Baseado nessa dúvida no Stack Overflow:*
+
+http://stackoverflow.com/questions/3724584/what-is-the-best-way-to-save-config-variables-in-a-php-web-app
